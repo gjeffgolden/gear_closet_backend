@@ -11,39 +11,10 @@ class User(AbstractUser):
 
 
 class Item(models.Model):
-    # ITEM_TYPE_CHOICES = [
-    #     ('shell', 'Shell'),
-    #     ('insulation', 'Insulation'),
-    #     ('baselayer', 'Baselayer'),
-    #     ('footwear', 'Footwear'),
-    #     ('accessory', 'Accessory'),
-    #     ('hiking', 'Hiking'),
-    #     ('climbing', 'Climbing'),
-    #     ('biking', 'Biking'),
-    #     ('camping', 'Camping'),
-    #     ('watersports', 'Watersports')
-    # ]
-
-    # NEW = 'new'
-    # CONDITION_CHOICES = [
-    #     (NEW, 'New'),
-    #     ('excellent', 'Excellent'),
-    #     ('good', 'Good'),
-    #     ('fair', 'Fair'),
-    #     ('poor', 'Poor')
-    # ]
-
     nickname = models.CharField(max_length=100)
     brand = models.CharField(max_length=100)
     model_name = models.CharField(max_length=100)
     model_year = models.PositiveIntegerField(
-        default=2021,
-        validators=[
-            MaxValueValidator(2050),
-            MinValueValidator(1950)
-        ]
-    )
-    purchased_year = models.PositiveIntegerField(
         default=2021,
         validators=[
             MaxValueValidator(2050),
@@ -58,7 +29,7 @@ class Item(models.Model):
             MinValueValidator(1)
         ]
     )
-    image = models.CharField(max_length=300, default="")
+    image_url = models.CharField(max_length=500)
     retired = models.BooleanField(default=False)
     user = models.ForeignKey(User, related_name="items", null=True, on_delete=models.CASCADE)
 

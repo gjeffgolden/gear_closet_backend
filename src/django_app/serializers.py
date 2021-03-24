@@ -10,10 +10,10 @@ class ItemObjectSerializer(serializers.ModelSerializer):
             'nickname', 
             'brand', 
             'model_name',
-            'model_year', 
-            'purchased_year', 
+            'model_year',  
             'item_type', 
             'condition', 
+            'image_url',
             'rating', 
         )
 
@@ -37,12 +37,11 @@ class ItemSerializer(serializers.ModelSerializer):
             'nickname', 
             'brand', 
             'model_name',
-            'model_year', 
-            'purchased_year', 
+            'model_year',  
             'item_type', 
             'condition', 
             'rating',
-            'image',
+            'image_url',
             "user" 
         ) 
 
